@@ -1,6 +1,6 @@
 # inner join - common ele
-# equi join - ==
-# non-equi join -
+# equi join - =
+# non-equi join - other tha =
 # natural join - common coloum names
 # self join - same table diff representations
 CREATE DATABASE join_practice;
@@ -16,7 +16,7 @@ outer join
 	left join
 	right join
 	full join
-cross join
+cross join - combinations
 */
 
 CREATE TABLE users (
@@ -134,3 +134,12 @@ SELECT username AS text_data FROM users
 UNION
 SELECT caption FROM posts;
 
+/* cross join
+	SELECT *
+	FROM table1
+	CROSS JOIN table2;
+
+*/
+SELECT U.username, p.caption
+FROM users U
+CROSS JOIN posts p;
