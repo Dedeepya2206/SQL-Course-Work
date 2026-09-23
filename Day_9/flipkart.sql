@@ -162,7 +162,7 @@ from users u
 join add_to_favourite f 
 on u.user_id=f.user_id
 join products p 
-on f.prodcut_id=p.product_id;
+on f.product_id=p.product_id;
 		#(or)
 SELECT 
     u.user_name,
@@ -190,4 +190,61 @@ select p.product_name,p.price, pc.category_name
 from products p
 join price_category pc on p.price between pc.min_price and pc.max_price;
 
+-- =========================================================
+-- natural join
+-- =========================================================
+-- display users and fav records.
+select * from users natural join add_to_favourite;
+
+select * from products natural join add_to_favourite;
+
+select * from users natural join products;
+
+-- =========================================================
+-- SELF Join
+-- =========================================================
+-- Display every user and the person who referred them.
+SELECT 
+u.user_name AS user_name,
+r.user_name AS referred_by
+FROM users u
+LEFT JOIN users r
+ON u.referred_by = r.user_id;
+-- =========================================================
+-- LEFF Join
+-- =========================================================
+-- Display all users and their favourite products.
+-- Users without favourites should also appear.
+select u.user_id,u.user_name, f.product_id
+from users u
+Left join add_to_favourite f on u.user_id=f.user_id;
+
+-- =========================================================
+-- RIGHT Join
+-- =========================================================
+-- Display all products and the users who added them to favourites. 
+
+SELECT p.product_id, p.product_name, f.user_id
+FROM add_to_favourite f
+RIGHT JOIN products p 
+ON f.product_id = p.product_id;
+
+-- =========================================================
+-- FULL Join
+-- =========================================================
+-- My Sql does not supports full outer join. 
+-- we use union. 
+-- Display all users and all favourtie records.
+select 
+u.user_id, 
+u.user_name,
+f.product_id
+from users u
+left join add_to_favourite f
+on u.user_id=f.user_id;
+-- =========================================================
+-- CROSS Join
+-- =========================================================
+select u.user_name,p.product_name
+from users u cross join products p;
 

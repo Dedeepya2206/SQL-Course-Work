@@ -214,7 +214,7 @@ where Price >= 20000;
 select * from Products
 where Price <= 5000;
 
-# MEMBERSHIP OPEWRATORS
+# MEMBERSHIP OPERATORS
 -- IS NULL
 select * from Products
 where Category IS NULL;
