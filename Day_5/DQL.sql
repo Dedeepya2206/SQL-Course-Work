@@ -277,3 +277,4 @@ SELECT 20 >> 2 AS RightShift;
  select @total as assignedvalue;
 
 
+ 
