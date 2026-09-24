@@ -248,6 +248,4 @@ on u.user_id=f.user_id;
 select u.user_name,p.product_name
 from users u cross join products p;
 
-select u.user_name,p.product_name
-from users u cross join products p;
 
