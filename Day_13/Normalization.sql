@@ -114,6 +114,7 @@ SELECT DISTINCT StudentID, StudentName, Department FROM student_data_2NF_student
 CREATE TABLE enrollment_3NF (
     StudentID INT,
     Course VARCHAR(30),
+    
     FOREIGN KEY (StudentID) REFERENCES students_3NF(StudentID)
 );
 
